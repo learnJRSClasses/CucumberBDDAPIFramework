@@ -1,10 +1,10 @@
 package stepDefs;
 
+import com.jayway.jsonpath.JsonPath;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -46,9 +46,41 @@ public class Product {
             System.out.println("Rate is --" + rate);
 */
         }
+
+
     }
 
 
+    @Then("I update the payload {string}")
+    public void iUpdateTheField(String arg0) {
+
+        String res = "{\n" +
+                "  \"name\" : \"Adam\",\n" +
+                "  \"FirstProduct\" : \"TV\",\n" +
+                "  \"age\" : 50\n" +
+                "}" ;
+
+        res = JsonPath.parse(res).set("$.FirstProduct", arg0).jsonString() ;
+        System.out.println(res);
+
+
+
+    }
+
+    @Then("I update the payload {string},{string},{string}")
+    public void iUpdateThePayload(String arg0, String arg1, String arg2) {
+        String res = "{\n" +
+                "  \"name\" : \"Adam\",\n" +
+                "  \"FirstProduct\" : \"TV\",\n" +
+                "  \"age\" : 50\n" +
+                "}" ;
+
+        res = JsonPath.parse(res).set("$.FirstProduct", arg0)
+                .set("$.name", arg1)
+                .set("$.age", arg2)
+                .jsonString() ;
+        System.out.println(res);
+    }
 }
 
 

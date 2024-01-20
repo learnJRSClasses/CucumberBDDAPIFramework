@@ -1,0 +1,65 @@
+1. Serialization and Deseriliazation
+2. POST request - Body , how to update fields
+
+
+It is related to JAVA
+
+1. Seralization - Pojo to json object
+2. DeSerialization - jsonObject to pojo (Plian Old java Object)
+
+
+
+pojo - ??
+
+pojo -- java object to Json Object
+
+POST :
+{
+  "username": "NewUserPrabhat",
+  "firstName": "Test",
+  "lastName": "User23",
+  "email": "SAM@xyz",
+  "password": "string",
+  "phone": "123456789"
+}
+
+username
+firstName
+
+get
+set
+
+=================================
+
+Steps for Serialization
+
+1. Pojo class -- (5) field created -- Body of request (5)
+2. Getter created
+3. Setter created
+
+4 . Create Another class - for serialization
+5. created Pojo Class object
+6. set the values
+
+7. Call ObjectMapper method from Jacson Library
+8. use writerWithDefaultPrettyPrinter().writeValueAsString(Object of pojo class)
+9. Store in String type
+
+=================================
+
+Steps for Deserialization
+
+1. Store API response/request as a string in 1 variable
+2. Call ObjectMapper method from Jacson Library
+3. call read value method and pass Stroed res/req as String and classname (class should have all the fiel;ds which are in req/res)
+4. Stroed above method in same class object which was pass in read value method
+5. call get method to read the values
+
+
+
+
+
+
+
+
+

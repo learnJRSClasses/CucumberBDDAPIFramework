@@ -18,3 +18,13 @@ Feature: Get all products the api
     |             7.9|
 
 
+  Scenario Outline: Verify the payload is updated
+    Given I hit the url of get products api endpoints
+    Then I update the payload "<FirstProduct>","<Name>","<Age>"
+    Examples:
+      |FirstProduct|Name|Age|
+      |  colorTV |Amit|35|
+      |  HeadPhones |Sumit|28|
+
+
+
